@@ -1,19 +1,23 @@
 import './App.css';
 import Login from './components/Login';
 import Profile from './components/Profile';
-import {Link, Route, Switch} from 'react-router-dom';
-import { motion } from "framer-motion";
+import {Route, Switch, useLocation} from 'react-router-dom';
+import { AnimatePresence } from "framer-motion";
 function App() {
-  return (
-    <Switch>
-      <Route path="/login"> 
-        <Login /> 
-      </Route>
-      <Route path="/profile"> 
-        <Profile /> 
-      </Route>
 
-    </Switch>
+  const location = useLocation();
+  return (
+    <AnimatePresence exitBeforeEnter initial = {false}>
+      <Switch location={location} key={location.pathname}>
+          <Route path="/login"> 
+            <Login /> 
+          </Route>
+          <Route path="/profile"> 
+            <Profile /> 
+          </Route>
+      </Switch>
+    </AnimatePresence>
+   
   );
 }
 

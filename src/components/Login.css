@@ -1,7 +1,27 @@
 form {
     position:absolute;
-    right: 40vh;
+    right: 35vh;
     top:10vh;
+}
+
+.wall { 
+    overflow:hidden;
+    position: absolute;
+    width: 70vw;
+    height: 100vh;
+    border: 1px solid #E08BA8;
+    background-color: #FF4E8A;
+}
+
+.circle {
+    overflow:hidden;
+    position: absolute;
+    width:400px;
+    height:400px;
+    border: 1px solid #CC2F64;
+    border-radius: 50%;
+    background-color:#FF3B7D;
+    z-index: 1;
 }
 
 .logo { 
@@ -55,7 +75,8 @@ form {
 }
 
 .loginbutton:hover {
-    background-color:#000;
+    background-color:#FF4E8A;
+    border: 1px solid #CC3E6E;
     color:#fff;
 }
 
