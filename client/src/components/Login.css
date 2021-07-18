@@ -1,0 +1,78 @@
+
+.lwall { 
+  
+    position: absolute;
+    width: 80vw;
+    height: 100vh;
+    border: 1px solid #E08BA8;
+    background: linear-gradient(140deg, #fb8eba, #ff0577);
+    background-repeat: no-repeat;
+}
+
+
+.loginform {
+    position:absolute;
+    right: 35vh;
+    top:10vh;
+    user-select: auto;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+
+.userSection li {
+    display:inline-flex;
+    margin:10px;
+    
+}
+
+
+.userSection li .inputfield {
+    min-width:300px;
+    justify-content: flex-end;
+}
+
+
+.inputfield {
+    width:25vh;
+    height: 4vh;
+    box-shadow: 2px 3px 5px #888888;
+    border-radius: 4px;
+    border: 1px solid #000;
+    font-size: 18px;
+}
+
+.inputfield:focus {
+    border: 1px solid #fff;
+}
+
+.loginbutton { 
+    border: 1px solid #000;
+    text-align:center;
+    margin-left:10px;
+    margin-right: 10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size:18px;
+    background-color: #fff;
+}
+
+.loginbutton:hover {
+    background-color:#FF4E8A;
+    border: 1px solid #CC3E6E;
+    color:#fff;
+}
+
+.registerlink { 
+    font-size:15px;
+    margin: 20px;
+    margin-bottom:15px;
+    text-align: center;
+}
+
+.llogo { 
+    width:30vh;
+    height:auto;
+   
+}

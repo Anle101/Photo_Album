@@ -1,0 +1,81 @@
+
+
+.rwall { 
+    position: absolute;
+    overflow: hidden;
+    width: 70vw;
+    height: 100vh;
+    border: 1px solid #DFFFF9;
+    background: linear-gradient(230deg, #C0FFF4, #00CDCD);
+    background-repeat: no-repeat;
+}
+
+.registerform {
+    position:absolute;
+    left: 20vh;
+    top:5vh;
+    user-select: auto;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+.rlogo { 
+    width:30vh;
+    height:auto;
+}
+
+.userSection {
+    flex-direction:column;
+    width:35vh;
+    font-size:24px;
+    list-style-type:none;
+}
+
+.userSection li {
+    display:inline-flex;
+    margin:10px;
+}
+
+.userSection li .inputfield {
+    min-width:300px;
+    justify-content: flex-end;
+}
+
+.inputfield {
+    width:25vh;
+    height: 4vh;
+    box-shadow: 2px 3px 5px #888888;
+    border-radius: 4px;
+    border: 1px solid #000;
+    font-size: 18px;
+}
+
+.inputfield:focus {
+    border: 1px solid #fff;
+}
+
+.registerbutton { 
+    border: 1px solid #000;
+    text-align:center;
+    margin-left:10px;
+    margin-right: 10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size:18px;
+    background-color: #fff;
+}
+
+.registerbutton:hover {
+    background-color:#FF4E8A;
+    border: 1px solid #CC3E6E;
+    color:#fff;
+}
+
+.registerlink { 
+    font-size:15px;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-bottom:15px;
+    text-align: center;
+}
