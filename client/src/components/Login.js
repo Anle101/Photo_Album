@@ -1,8 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Login.css';
+import {useState} from 'react';
 import {motion} from 'framer-motion';
+
 function Login() {
+
+
+    const [profileName, setProfileName] = useState('');
+
     return (
         <motion.div>
             
@@ -20,7 +26,7 @@ function Login() {
                         <img src="/logo.png" alt="logo" className="llogo"></img>
                         <li>
                        
-                            <input type="text" name="username" className="inputfield" placeholder = "Email or Username"></input>
+                            <input type="text" name="username" className="inputfield" placeholder = "Email or Username" onChange={(e) => {setProfileName(e.target.value)}} />
                             
                         </li>
                         <li>
@@ -30,7 +36,7 @@ function Login() {
                         </li>
                         
                         <li>
-                            <input type="submit" className="loginbutton" value = "Login"></input>
+                            <input type="submit" className="loginbutton" value = "Login" ></input>
                             <Link to="/register" className="registerlink">Not registered? Click here to join! </Link>
                         </li>
                     </ul>

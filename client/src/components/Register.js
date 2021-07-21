@@ -1,8 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import './Register.css';
 import {motion} from 'framer-motion';
+import Axios from 'axios';
+
 function Register() {
+
+    const [Email,setEmail]= useState("");
+    const [Password, setNewPassword] = useState("");
+    const [CPassword, setCPassword] = useState("");
+    const submitRegister = () => { 
+        if (Password === CPassword) {
+            Axios.post('https://localhost:3001/api/registerverification', {
+                email: Email, 
+                password: Password,
+            }).then (() => {
+                alert("Successful Registration");
+            });
+        }
+        else {
+            alert("Passwords are not the same!");
+        }
+    }
     return (
         <motion.div>
         
@@ -18,21 +37,24 @@ function Register() {
                 <ul className="userSection">
                     <img src="/logo.png" alt="logo" className="rlogo"></img>
                     <li>
-                        <input type="text" name="username" className="inputfield" placeholder = "Email"></input>
-                    </li>
-                    <li>
-                        <input type="text" name="username" className="inputfield" placeholder = "Username"></input>
+                        <input type="text" name="username" className="inputfield" placeholder = "Email" onChange = {(e) => {
+                            setEmail(e.target.value);
+                        }}/>
                     </li>
                     <li> 
-                        <input type="password" name="password" className="inputfield" placeholder = "Enter Password"></input>
+                        <input type="password" name="password" className="inputfield" placeholder = "Enter Password" onChange = {(e) => {
+                            setNewPassword(e.target.value);
+                        }}></input>
                     </li>
 
                     <li>
-                        <input type="password" name="password" className="inputfield" placeholder = "Confirm Password"></input>
+                        <input type="password" name="password" className="inputfield" placeholder = "Confirm Password" onChange = {(e) => {
+                            setCPassword(e.target.value);
+                        }}></input>
                     </li>
                     
                     <li>
-                        <input type="submit" className="registerbutton" value = "Register"></input>
+                        <button  className="registerbutton" value = "Register" onClick = {submitRegister}>Register</button>
                         <Link to="/login" className="registerlink">Already registered? Sign in here! </Link>
                     </li>
                 </ul>
