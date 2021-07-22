@@ -11,11 +11,13 @@ function Register() {
     const [CPassword, setCPassword] = useState("");
     const submitRegister = () => { 
         if (Password === CPassword) {
-            Axios.post('https://localhost:3001/api/registerverification', {
+            console.log("done");
+            Axios.post('http://localhost:3001/api/registerverification', {
                 email: Email, 
                 password: Password,
             }).then (() => {
                 alert("Successful Registration");
+                console.log("done");
             });
         }
         else {
@@ -54,7 +56,7 @@ function Register() {
                     </li>
                     
                     <li>
-                        <button  className="registerbutton" value = "Register" onClick = {submitRegister}>Register</button>
+                        <button className="registerbutton" onClick = {submitRegister}>Register</button>
                         <Link to="/login" className="registerlink">Already registered? Sign in here! </Link>
                     </li>
                 </ul>

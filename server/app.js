@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const mysql = require("mysql");
 
@@ -9,8 +9,28 @@ const db = mysql.createPool({
     password: 'Javacode098',   
     database: 'teacup'
 });
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.get('/api/getlogin', (request,response) => {
+    const email = request.query.user;
+    const password = request.query.password;
+    const sqlstatement = "SELECT * FROM users WHERE email = ? AND password = ?;";
+  
+    db.query(sqlstatement, [email, password], (error, result) => {
+        console.log(result);
+        response.send(result);
+    });
+})
+
+app.get('/api/getprofile', (request, response) => {
+    const sqlstatement = "SELECT * FROM users";
+
+    db.query(sqlstatement, (error, result) => {
+        response.send(result);
+    });
+});
 
 app.post('/api/registerverification', (request,response) => {
     const email = request.body.email;
