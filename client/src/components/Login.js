@@ -9,6 +9,7 @@ import { GlobalContext } from '../context/GlobalContext';
 function Login() {
 
     const {setCurrentProfile} = useContext(GlobalContext);
+    const {CurrentProfile} = useContext(GlobalContext);
 
     const [LoginUser, setLoginUser] = useState('');
     const [LoginPassword, setLoginPassword] = useState('');
@@ -21,8 +22,10 @@ function Login() {
             }
         }).then((response) => {
             
-            console.log(response.data[0]);
+            
             setCurrentProfile(response.data[0]);
+            
+            console.log(CurrentProfile);
         });
         
     }
