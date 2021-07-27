@@ -11,7 +11,7 @@ function Profile() {
   
     console.log(CurrentProfile);
     return (
-        <motion.div initial={{y:-1000}} animate = {{ y: 0}} exit = {{y:-1000}} className="profile">
+        <motion.div initial={{y:-600}} animate = {{ y: 0}} exit = {{y:-600}} className="profile">
 
             <div className="background">
                 <motion.div className="pwall"></motion.div>

@@ -10,8 +10,12 @@ import Register from './components/Register';
 function App() {
 
   const [CurrentProfile, setCurrentProfile] = useState({});
-
+  const [Token, setToken] = useState();
   const location = useLocation();
+  if (!Token) {
+    return <Login setToken={setToken}/>
+  }
+  
   return (
     <AnimatePresence  initial = {false}>
       

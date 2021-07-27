@@ -12,6 +12,11 @@ const db = mysql.createPool({
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use('/login', (request, response) => {
+    response.send({
+        token:'testtoken'
+    });
+});
 
 app.get('/api/getlogin', (request,response) => {
     const email = request.query.user;
