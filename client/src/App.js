@@ -6,15 +6,16 @@ import {Route, Switch, useLocation} from 'react-router-dom';
 import {GlobalContext} from './context/GlobalContext'; 
 import { AnimatePresence } from "framer-motion";
 import Register from './components/Register';
+import useToken from './components/useToken';
 
 function App() {
 
   const [CurrentProfile, setCurrentProfile] = useState({});
-  const [Token, setToken] = useState();
+  //const {Token, setToken} = useToken();
   const location = useLocation();
-  if (!Token) {
+  /*if (!Token) {
     return <Login setToken={setToken}/>
-  }
+  }*/
   
   return (
     <AnimatePresence  initial = {false}>

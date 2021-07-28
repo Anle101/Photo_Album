@@ -8,7 +8,8 @@ import { GlobalContext } from '../context/GlobalContext';
 function Profile() {
 
     const {CurrentProfile} = useContext(GlobalContext);
-  
+    
+    
     console.log(CurrentProfile);
     return (
         <motion.div initial={{y:-600}} animate = {{ y: 0}} exit = {{y:-600}} className="profile">

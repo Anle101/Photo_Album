@@ -7,7 +7,7 @@ import Axios from 'axios';
 import { GlobalContext } from '../context/GlobalContext';
 import PropTypes from 'prop-types';
 
-function Login({setToken}) {
+function Login(/*{setToken}*/) {
 
     const {setCurrentProfile} = useContext(GlobalContext);
     const {CurrentProfile} = useContext(GlobalContext);
@@ -26,32 +26,28 @@ function Login({setToken}) {
         })
         .then (data => data.json())
     }
-    const submitLogin = async () => {
-    /*    Axios.get("http://localhost:3001/api/getlogin",  {
+    const handleSubmit = async () => {
+  
+        Axios.get("http://localhost:3001/api/getlogin",  {
             params: {
                 user: LoginUser, 
                 password: LoginPassword,
             }
         }).then((response) => { //if successful
-            
-    
+            console.log(response.data[0]);
+            //setToken(response.data.Token);
             setCurrentProfile(response.data[0]);
             
             console.log(CurrentProfile);
+            
+            
         }).catch((error) => {
-            alert("Incorrect Username or Password!");
+            console.log(error);
+       
         });
-     */   
+       
     }
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const token = await loginUser({
-            LoginUser,
-            LoginPassword
-        });
-        setToken(token);
-    }
     
         return (
             <motion.div>
@@ -60,7 +56,7 @@ function Login({setToken}) {
                         <motion.div initial={{x:-2000}} animate = {{ x: -400}} exit = {{x:-2000}} className="lwall"></motion.div>
                     </div>            
     
-                    <motion.form initial={{x:-700}} animate = {{ x: 0}} exit = {{x:-1700}} className = "loginform" onSubmit={handleSubmit}>
+                    <motion.form initial={{x:-700}} animate = {{ x: 0}} exit = {{x:-1700}} className = "loginform">
                
                         <ul className="userSection">
                             <img src="/logo.png" alt="logo" className="llogo"></img>
@@ -74,7 +70,7 @@ function Login({setToken}) {
                             </li>
                             
                             <li>
-                                <button to="/profile" className="loginbutton" onClick={submitLogin}>Login</button>
+                                <Link to="/profile" className="loginbutton" value="Login" onClick = {handleSubmit}>Login</Link>
                                 <Link to="/register" className="registerlink">Not registered? Click here to join! </Link>
                             </li>
                         </ul>
@@ -89,6 +85,6 @@ function Login({setToken}) {
 
 export default Login
 
-Login.propTypes = {
+/*Login.propTypes = {
     setToken: PropTypes.func.isRequired
-}
+}*/
