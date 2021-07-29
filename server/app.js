@@ -25,7 +25,7 @@ app.get('/api/getlogin', (request,response) => {
   
     db.query(sqlstatement, [email, password], (error, result) => {
         console.log(result);
-        response.send(result);
+        response.send({result:result,token:"testtoken"});
     });
 })
 

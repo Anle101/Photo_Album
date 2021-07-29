@@ -7,7 +7,7 @@ import Axios from 'axios';
 import { GlobalContext } from '../context/GlobalContext';
 import PropTypes from 'prop-types';
 
-function Login(/*{setToken}*/) {
+function Login({setToken}) {
 
     const {setCurrentProfile} = useContext(GlobalContext);
     const {CurrentProfile} = useContext(GlobalContext);
@@ -26,17 +26,17 @@ function Login(/*{setToken}*/) {
         })
         .then (data => data.json())
     }
-    const handleSubmit = async () => {
-  
+    const handleSubmit = async e => {
+        e.preventDefault()
         Axios.get("http://localhost:3001/api/getlogin",  {
             params: {
                 user: LoginUser, 
                 password: LoginPassword,
             }
         }).then((response) => { //if successful
-            console.log(response.data[0]);
-            //setToken(response.data.Token);
-            setCurrentProfile(response.data[0]);
+            console.log(response.data.result[0]);
+            setToken(response.data.token);
+            setCurrentProfile(response.data.result[0]);
             
             console.log(CurrentProfile);
             
@@ -85,6 +85,6 @@ function Login(/*{setToken}*/) {
 
 export default Login
 
-/*Login.propTypes = {
+Login.propTypes = {
     setToken: PropTypes.func.isRequired
-}*/
+}
