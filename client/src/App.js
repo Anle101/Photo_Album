@@ -11,20 +11,23 @@ import useToken from './components/useToken';
 function App() {
 
   const [CurrentProfile, setCurrentProfile] = useState({});
-  const {Token, setToken} = useToken();
+  const {token, setToken} = useToken();
   const location = useLocation();
- 
+  
   
   return (
     <AnimatePresence  initial = {false}>
       
         <Switch location={location} key={location.pathname}>
           <GlobalContext.Provider value={{CurrentProfile, setCurrentProfile}}>
-            {!Token &&  
+            {!token &&  
               <Login setToken={setToken}/>
             }
-            {Token && 
+            {token && 
               <>
+                <Route path="/login">
+                  <Login setToken={setToken}/>
+                </Route>
                 <Route path="/register"> 
                   <Register /> 
                 </Route>

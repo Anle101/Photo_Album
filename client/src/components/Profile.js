@@ -8,8 +8,17 @@ import { GlobalContext } from '../context/GlobalContext';
 function Profile() {
 
     const {CurrentProfile} = useContext(GlobalContext);
-    
-    
+    const {setCurrentProfile} = useContext(GlobalContext);
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        if (loggedInUser) {
+            const userConfirmation = JSON.parse(loggedInUser);
+            setCurrentProfile(userConfirmation);
+        }
+        console.log(CurrentProfile);
+      }, []);
+
     console.log(CurrentProfile);
     return (
         <motion.div initial={{y:-600}} animate = {{ y: 0}} exit = {{y:-600}} className="profile">

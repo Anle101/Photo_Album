@@ -16,17 +16,8 @@ function Login({setToken}) {
     const [LoginPassword, setLoginPassword] = useState('');
     const history = useHistory();
 
-    async function loginUser(cred) { 
-        return fetch('http://localhost:3001/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cred)
-        })
-        .then (data => data.json())
-    }
-    const handleSubmit = async e => {
+    
+    const loginCred = async e => {
         e.preventDefault()
         Axios.get("http://localhost:3001/api/getlogin",  {
             params: {
@@ -34,12 +25,12 @@ function Login({setToken}) {
                 password: LoginPassword,
             }
         }).then((response) => { //if successful
-            console.log(response.data.result[0]);
+            console.log(response.data.user[0]);
             setToken(response.data.token);
-            setCurrentProfile(response.data.result[0]);
-            
+            setCurrentProfile(response.data.user[0]);
+            console.log(response.data);
             console.log(CurrentProfile);
-            
+            localStorage.setItem('user', JSON.stringify(response.data.user[0]));
             
         }).catch((error) => {
             console.log(error);
@@ -48,7 +39,6 @@ function Login({setToken}) {
        
     }
 
-    
         return (
             <motion.div>
                 
@@ -56,7 +46,7 @@ function Login({setToken}) {
                         <motion.div initial={{x:-2000}} animate = {{ x: -400}} exit = {{x:-2000}} className="lwall"></motion.div>
                     </div>            
     
-                    <motion.form initial={{x:-700}} animate = {{ x: 0}} exit = {{x:-1700}} className = "loginform">
+                    <motion.form initial={{x:-700}} animate = {{ x: 0}} exit = {{x:-1700}} className = "loginform" onSubmit = {loginCred}>
                
                         <ul className="userSection">
                             <img src="/logo.png" alt="logo" className="llogo"></img>
@@ -70,7 +60,7 @@ function Login({setToken}) {
                             </li>
                             
                             <li>
-                                <Link to="/profile" className="loginbutton" value="Login" onClick = {handleSubmit}>Login</Link>
+                                <input type="submit" to="/profile" className="loginbutton" value="Login"></input>
                                 <Link to="/register" className="registerlink">Not registered? Click here to join! </Link>
                             </li>
                         </ul>
