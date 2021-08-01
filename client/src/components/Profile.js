@@ -9,6 +9,13 @@ function Profile() {
 
     const {CurrentProfile} = useContext(GlobalContext);
     const {setCurrentProfile} = useContext(GlobalContext);
+    const [value, setValue] = useState(0); // integer state
+
+    const ForceUpdate = () => {
+        localStorage.clear();
+        
+        setValue(value => value + 1); // update the state to force render
+    }
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
@@ -19,7 +26,10 @@ function Profile() {
         console.log(CurrentProfile);
       }, []);
 
-    console.log(CurrentProfile);
+    
+    
+   
+   console.log(CurrentProfile);
     return (
         <motion.div initial={{y:-600}} animate = {{ y: 0}} exit = {{y:-600}} className="profile">
 
@@ -40,11 +50,12 @@ function Profile() {
                 </div>
                 
                 <div className = "bottom-info">
-                <hr />
+                    <hr />
                     Details: {CurrentProfile.details}
                 </div>
            </motion.div>
          
+            <Link to="/login" className="button"  onClick={ForceUpdate}>Log Out</Link>
         </motion.div>
     )
 }

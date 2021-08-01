@@ -46,3 +46,22 @@
     flex: 1;
     margin: 20px;
 }
+
+.button { 
+    position:absolute;
+    width: 100px;
+    height:auto;
+    padding: 10px;
+    border-radius:5px;
+    border: 1px solid #000;
+    background: #fff;   
+    z-index:1;
+    margin: 20px;
+    transition: 0.2s ease-in-out;
+}
+
+.button:hover { 
+    width:110px;
+    
+    cursor:pointer;
+}

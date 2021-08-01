@@ -25,12 +25,18 @@ function Login({setToken}) {
                 password: LoginPassword,
             }
         }).then((response) => { //if successful
-            console.log(response.data.user[0]);
-            setToken(response.data.token);
-            setCurrentProfile(response.data.user[0]);
-            console.log(response.data);
-            console.log(CurrentProfile);
-            localStorage.setItem('user', JSON.stringify(response.data.user[0]));
+            if (!response.data.user[0]) {
+                alert('Incorrect Username/Password!');
+            }
+            else {
+                console.log(response.data.user[0]);
+                setToken(response.data.token);
+                setCurrentProfile(response.data.user[0]);
+                console.log(response.data);
+                console.log(CurrentProfile);
+                localStorage.setItem('user', JSON.stringify(response.data.user[0]));
+            }
+            
             
         }).catch((error) => {
             console.log(error);
