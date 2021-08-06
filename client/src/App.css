@@ -5,7 +5,9 @@
 .App {
   text-align: center;
 }
-
+.overflow-hidden {
+  overflow: hidden;
+}
 
 
 .App-link {

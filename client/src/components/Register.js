@@ -25,7 +25,7 @@ function Register() {
         }
     }
     return (
-        <motion.div>
+        <motion.div className="register-section">
         
             <div className="background" >
                 <motion.div initial={{x:2000}} animate = {{ x: 750}} exit = {{x:2000}} className="rwall"></motion.div>

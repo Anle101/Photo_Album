@@ -1,12 +1,12 @@
 
 .lwall { 
-  
     position: absolute;
     width: 80vw;
     height: 100vh;
     border: 1px solid #E08BA8;
     background: linear-gradient(140deg, #fb8eba, #ff0577);
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 
@@ -18,6 +18,7 @@
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
+    overflow: hidden;
 }
 
 
@@ -93,3 +94,22 @@
     height:auto;
    
 }
+
+.login-message {
+    position:absolute;
+    right: 35vh;
+    top:40vh;
+}
+.redirectbutton {
+    position: absolute;
+    right: 25vw;
+    top: 50vh;
+    font-size: 24px;
+}
+.redirectbutton2 {
+    position: absolute;
+    right: 20vw;
+    top: 50vh;
+    font-size: 24px;
+}
+

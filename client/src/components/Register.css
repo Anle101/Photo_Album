@@ -1,4 +1,6 @@
-
+.register-section{
+    overflow: hidden;
+}
 
 .rwall { 
     position: absolute;
@@ -8,6 +10,7 @@
     border: 1px solid #DFFFF9;
     background: linear-gradient(230deg, #C0FFF4, #00CDCD);
     background-repeat: no-repeat;
+
 }
 
 .registerform {

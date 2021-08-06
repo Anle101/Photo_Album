@@ -7,6 +7,8 @@ import {GlobalContext} from './context/GlobalContext';
 import { AnimatePresence } from "framer-motion";
 import Register from './components/Register';
 import useToken from './components/useToken';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -19,7 +21,8 @@ function App() {
     <AnimatePresence  initial = {false}>
       
         <Switch location={location} key={location.pathname}>
-          <GlobalContext.Provider value={{CurrentProfile, setCurrentProfile}}>
+          <GlobalContext.Provider value={{CurrentProfile, setCurrentProfile,token}}>
+          
             {!token &&  
               <Login setToken={setToken}/>
             }
@@ -33,6 +36,10 @@ function App() {
                 </Route>
                 <Route path="/profile"> 
                   <Profile /> 
+                </Route>
+                <Route path="/home"> 
+                  <Navbar />
+                  <Home /> 
                 </Route>
               </>
             }
