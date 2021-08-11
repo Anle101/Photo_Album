@@ -1,0 +1,25 @@
+.main-content { 
+    position:absolute;
+}
+
+.feed { 
+    width: 30vw;
+    height: 50vh;
+    margin: 30px;
+    right: 20vw;
+    background-color: #EDEDEE;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.feed-content {
+    margin: 30px;
+    font-size: 24px;    
+}
+
+.feed-image { 
+    width: 100%;
+    height: auto;
+}

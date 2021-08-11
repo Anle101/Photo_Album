@@ -23,10 +23,10 @@ function App() {
         <Switch location={location} key={location.pathname}>
           <GlobalContext.Provider value={{CurrentProfile, setCurrentProfile,token}}>
           
-            {!token &&  
-              <Login setToken={setToken}/>
+            {/*!token &&  
+              <Login setToken={setToken}/> */
             }
-            {token && 
+            {//token && 
               <>
                 <Route path="/login">
                   <Login setToken={setToken}/>
