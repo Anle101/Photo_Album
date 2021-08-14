@@ -27,7 +27,21 @@ app.get('/api/getlogin', (request,response) => {
         console.log(result);
         response.send({user:result,token:{token:'testtoken'}});
     });
-})
+});
+
+app.get('/api/getcontent', (request,response) => {
+    const email = request.query.user;
+    console.log ("Email is " + email);
+    const sqlstatement = "SELECT user_id FROM users WHERE email = ?;";
+    let user_id;
+    
+    db.query(sqlstatement, email, (error, result) => {
+        console.log("user_id is " + result);
+        user_id = result;
+    });
+
+    
+});
 
 app.get('/api/getprofile', (request, response) => {
     const sqlstatement = "SELECT * FROM users";

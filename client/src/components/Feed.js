@@ -1,6 +1,9 @@
 import React from 'react';
 import './Feed.css';
-function Feed() {
+import PropTypes from 'prop-types';
+function Feed({feedItem}) {
+
+    
     return (
         <div className="main-content">
             <div className="feed">
@@ -14,3 +17,7 @@ function Feed() {
 }
 
 export default Feed
+
+Feed.propTypes = {
+    feedItem: PropTypes.func.isRequired
+}
