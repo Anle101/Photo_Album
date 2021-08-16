@@ -23,8 +23,8 @@ function Home() {
                     user: userConfirmation.email, 
                 }
             }).then((response) => { //if successful
-                console.log("The response is " + response);
-              //  setFeedItems({imgPath:response.data.image_dir, caption: response.data.picture_caption});
+                console.log(response.data[1]);
+                setFeedItems({imgPath:response.data[0].image_dir, caption: response.data[0].picture_caption});
                 
             }).catch((error) => {
                 console.log(error);

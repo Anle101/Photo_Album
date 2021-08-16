@@ -31,15 +31,20 @@ app.get('/api/getlogin', (request,response) => {
 
 app.get('/api/getcontent', (request,response) => {
     const email = request.query.user;
-    console.log ("Email is " + email);
+    //console.log ("Email is " + email);
     const sqlstatement = "SELECT user_id FROM users WHERE email = ?;";
     let user_id;
     
     db.query(sqlstatement, email, (error, result) => {
-        console.log("user_id is " + result);
-        user_id = result;
-    });
+        console.log(result[0].user_id);
+        const sqlstatement2 = "SELECT * FROM pictures WHERE poster_id = ?;";
 
+        db.query(sqlstatement2, result[0].user_id, (error, result2) => {
+            console.log(result2);
+            response.send(result2);
+        });
+    });
+    
     
 });
 
