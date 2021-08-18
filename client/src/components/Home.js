@@ -40,11 +40,12 @@ function Home() {
       }, []);
     //Assumes user is already logged in
     
-    function feedDisplay() { 
-        return (
-            FeedItems.map ((feedItem) => ( <Feed feedItem = {{imgPath:feedItem.image_dir, caption: feedItem.picture_caption}} />))
-        );
-    }
+    const FeedDisplay = ({feedItems})  => (
+        <div>
+            {feedItems.map (feedItem => (<Feed feedItem = {{imgPath:feedItem.image_dir, caption: feedItem.picture_caption}}/>))}
+            console.log(feedItems);
+        </div>
+    );
       
     
     return (
@@ -56,9 +57,8 @@ function Home() {
            
            
             <>
-                <feedDisplay />
-                <Feed feedItem = {{imgPath:FeedItems[0].image_dir, caption: FeedItems[0].picture_caption}} />
-                <Feed feedItem = {{imgPath:FeedItems[1].image_dir, caption: FeedItems[1].picture_caption}} />
+                
+                <FeedDisplay feedItems= {FeedItems} />
             
             </>
             }

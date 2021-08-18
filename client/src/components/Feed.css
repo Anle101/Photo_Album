@@ -1,13 +1,24 @@
+.entire-feed { 
+    display:flex;
+    justify-content: center;
+}
+
+
 .main-content { 
-  z-index: 2;
-   
+    z-index: 2;
+    display:flex;
+    justify-content:flex-start;
+  
+    width:70%;
+    background-color:#D3A0A0;
 }
 
 .feed { 
     width: 30vw;
     height: auto;
-    margin: 30px;
-    
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     background-color: #EDEDEE;
     border-radius: 20px;
     display:flex;
@@ -21,6 +32,30 @@
 }
 
 .feed-image { 
-    width: 100%;
-    height: auto;
+    width: 590px;
+    height: 450px;
+}
+.post-image { 
+    width: 100px;
+    height: 100px;
+}
+
+.post-content {
+    padding: 20px;
+    margin-left:20px;
+    margin-top: 30px;
+    height:100px;
+    width:400px;
+    background-color:rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.uploader-info { 
+    font-size: 24px;
+    margin: 20px;
+    justify-self: center;
+    align-items: center;
+    color:#EDEDEE;
 }

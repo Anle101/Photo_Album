@@ -53,7 +53,7 @@ import './Navbar.css';
             <nav className="navbar">
                 <div className="navbar-container">
                     <Link to="/home" className="navbar-logo" onClick={toggleHome}>
-                     <img src ="/logo.png" className = "logo"/>   teaCup  
+                     <img src ="/logo.png" className = "logo"/>   Photo_Album  
                     </Link>
 
                     <div className='menu-icon' onClick={handleClick}>

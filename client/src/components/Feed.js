@@ -5,14 +5,21 @@ function Feed({feedItem}) {
     console.log(feedItem.imgPath);
     
     return (
-        <div className="main-content">
-            <div className="feed">
-                <div className="feed-content">
-                    <img src={feedItem.imgPath} className="feed-image"></img>
-                    <p>{feedItem.caption}</p>
+        <div className="entire-feed">
+            <div className="main-content">
+                <div className="feed">
+                    <div className="feed-content">
+                        <img src={feedItem.imgPath} className="feed-image"></img>
+                        <p>{feedItem.caption}</p>
+                    </div>
+                </div>
+                <div className="post-content">
+                <img src={feedItem.imgPath} className="post-image"></img>
+               <p className="uploader-info">Memory by :</p>
                 </div>
             </div>
         </div>
+       
     )
 }
 
