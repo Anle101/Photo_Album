@@ -37,11 +37,11 @@ app.get('/api/getcontent', (request,response) => {
     
     db.query(sqlstatement, email, (error, result) => {
         console.log(result[0].user_id);
-        const sqlstatement2 = "SELECT * FROM pictures WHERE poster_id = ?;";
+        const sqlstatement2 = "SELECT * FROM pictures LEFT JOIN users ON pictures.poster_id = users.user_id;";
 
-        db.query(sqlstatement2, result[0].user_id, (error, result2) => {
+        db.query(sqlstatement2, (error, result2) => {
             console.log(result2);
-            response.send(result2);
+            response.send({feed:result2});
         });
     });
     

@@ -33,7 +33,7 @@ function Register() {
             </div>
         
 
-            <motion.form className="registerform"  initial={{x:700}} animate = {{ x: 50}} exit = {{x:1700}}>
+            <motion.form className="registerform"  initial={{x:700}} animate = {{ x: 50}} exit = {{x:700}}>
               
        
                 <ul className="userSection">

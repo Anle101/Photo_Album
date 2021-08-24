@@ -14,11 +14,12 @@
 }
 .pwall { 
     position: absolute;
+    overflow: hidden;
     width: 100vw;
-    height: 150vh;
-    border: 1px solid #92D7B5;
-    background: linear-gradient(140deg, #B7E5CE, #4CC085);
-    background-repeat: no-repeat;
+    height: 100vh;
+    border: 1px solid #FFD8D1;
+    background: linear-gradient(180deg, #FFEBE8, #FFD8D1);
+    
     z-index: 0;
 }
 .user-info { 

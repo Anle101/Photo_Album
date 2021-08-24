@@ -2,11 +2,14 @@ import React,{useEffect, useState, useContext} from 'react';
 import {motion} from 'framer-motion';
 import {GlobalContext} from '../context/GlobalContext';
 import './Home.css';
+import {Link} from 'react-router-dom';
 import Feed from './Feed';
 import Axios from 'axios';
+import Upload from './Upload';
 function Home() {
 
     const [FeedItems, setFeedItems] = useState([]);
+
     const [Retrieval, setRetrieval] = useState(false);
 
     const {CurrentProfile} = useContext(GlobalContext);
@@ -24,11 +27,12 @@ function Home() {
                     user: userConfirmation.email, 
                 }
             }).then((response) => { //if successful
-                console.log(response.data[1]);
-                setFeedItems(response.data); 
-
+                console.log(response.data.feed);
+                setFeedItems(response.data.feed); 
+               
+               
                 console.log(FeedItems[0]);
-                console.log(FeedItems[1]);
+                console.log(FeedItems);
                 //setFeedItems({imgPath:response.data[0].image_dir, caption: response.data[0].picture_caption});
                 setRetrieval(true);
             }).catch((error) => {
@@ -42,8 +46,8 @@ function Home() {
     
     const FeedDisplay = ({feedItems})  => (
         <div>
-            {feedItems.map (feedItem => (<Feed feedItem = {{imgPath:feedItem.image_dir, caption: feedItem.picture_caption}}/>))}
-            console.log(feedItems);
+            {feedItems.map (feedItem => (<Feed feedItem = {{imgPath:feedItem.image_dir, caption: feedItem.picture_caption, name: feedItem.name, profile_picture: feedItem.profile_picture}}/>))}
+           
         </div>
     );
       
@@ -58,8 +62,19 @@ function Home() {
            
             <>
                 
-                <FeedDisplay feedItems= {FeedItems} />
-            
+               <FeedDisplay feedItems= {FeedItems} />
+               <Upload />
+            </>
+            }
+
+            {!Retrieval &&
+            <>
+           
+                <div className="login-warning"> 
+                    <i class="fas fa-heart-broken" style={{fontSize:300, opacity: 0.1}}></i>
+                    <p>You need to log in the capture some memories!</p> 
+                    <Link to="/login"> Login here! </Link>
+                </div>
             </>
             }
            

@@ -18,7 +18,7 @@ function App() {
   
   
   return (
-    <AnimatePresence  initial = {false}>
+    <AnimatePresence  initial = {false} exitBeforeEnter>
       
         <Switch location={location} key={location.pathname}>
           <GlobalContext.Provider value={{CurrentProfile, setCurrentProfile,token}}>

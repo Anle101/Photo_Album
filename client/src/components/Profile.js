@@ -31,12 +31,11 @@ function Profile() {
    
    console.log(CurrentProfile);
     return (
-        <motion.div initial={{y:-600}} animate = {{ y: 0}} exit = {{y:-600}} className="profile">
+        <motion.div initial={{opacity:0}} animate = {{ opacity:1}} exit = {{opacity:0}} className="profile">
 
-            <div className="background">
-                <motion.div className="pwall"></motion.div>
-            </div>   
-           <motion.div className="user-info">
+            <div className="pwall"></div>
+
+           <div className="user-info">
                 <div className="top-info">
                     <img src={(CurrentProfile.profile_picture!= null)? process.env.PUBLIC_URL + CurrentProfile.profile_picture:  process.env.PUBLIC_URL + "images/blank.jpg"} alt="Profile Picture" className = "profile-picture"></img>
                     <div className = "basic-info">
@@ -53,7 +52,7 @@ function Profile() {
                     <hr />
                     Details: {CurrentProfile.details}
                 </div>
-           </motion.div>
+           </div>
          
             <Link to="/login" className="button"  onClick={ForceUpdate}>Log Out</Link>
         </motion.div>

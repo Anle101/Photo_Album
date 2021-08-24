@@ -1,22 +1,31 @@
 import React from 'react';
 import './Feed.css';
 import PropTypes from 'prop-types';
+import {motion} from 'framer-motion';
 function Feed({feedItem}) {
     console.log(feedItem.imgPath);
     
     return (
         <div className="entire-feed">
             <div className="main-content">
-                <div className="feed">
+                <motion.div className="feed" whileHover= {
+                {
+                    scale: 1.1,
+                }
+                }>
                     <div className="feed-content">
                         <img src={feedItem.imgPath} className="feed-image"></img>
                         <p>{feedItem.caption}</p>
                     </div>
-                </div>
-                <div className="post-content">
-                <img src={feedItem.imgPath} className="post-image"></img>
-               <p className="uploader-info">Memory by :</p>
-                </div>
+                </motion.div>
+                <motion.div className="post-content" whileHover= {
+                {
+                    scale: 1.1,
+                }
+                }>
+                    <img src={(feedItem.profile_picture)? feedItem.profile_picture : "/images/blank.jpg"} className="post-image"></img>
+                    <p className="uploader-info">Memory by : {feedItem.name}</p>
+                </motion.div>
             </div>
         </div>
        
