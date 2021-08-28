@@ -1,2 +1,2 @@
 -- @BLOCK
-ALTER SCHEMA pikture_frame RENAME TO teacup
+INSERT INTO users (email, password) VALUES ('jsakl@gmail.com', 'kkkl');

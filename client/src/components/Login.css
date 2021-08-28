@@ -13,7 +13,7 @@
 .loginform {
     position:absolute;
     right: 35vh;
-    top:10vh;
+    top:8vh;
     user-select: auto;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -90,9 +90,15 @@
 }
 
 .llogo { 
-    width:30vh;
-    height:auto;
-   
+    margin-top:150px;
+    align-self:center;
+    opacity: 0.5;
+    font-size:150px;
+}
+
+.llogo-font {
+    font-size:36px;
+    align-self:center;
 }
 
 .login-message {

@@ -9,7 +9,7 @@
             "port": 3306,
             "driver": "MySQL",
             "name": "teaCup",
-            "database": "pikture_frame",
+            "database": "teacup",
             "username": "root",
             "password": "Javacode098"
         }

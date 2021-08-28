@@ -1,9 +1,40 @@
-import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState, useEffect, useContext} from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { GlobalContext } from '../context/GlobalContext';
+import Axios from 'axios';
 
  function Navbar() {
 
+    const [value, setValue] = useState(0); // integer state
+    const [Retrieval, setRetrieval] = useState(false);
+    const ForceUpdate = () => {
+        localStorage.clear();
+        window.location.reload();
+        setValue(value => value + 1); // update the state to force render
+    }
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        if (loggedInUser) {
+            const userConfirmation = JSON.parse(loggedInUser);
+            
+            Axios.get("http://localhost:3001/api/getcontent",  {
+                params: {
+                    user: userConfirmation.email, 
+                }
+            }).then((response) => { //if successful
+
+               
+                setRetrieval(true);
+            }).catch((error) => {
+                console.log(error);
+           
+            });
+        }
+       
+      }, []);
     
      const [click, setClick] = useState(false);
      const [button, setButton] = useState(true);
@@ -53,31 +84,51 @@ import './Navbar.css';
             <nav className="navbar">
                 <div className="navbar-container">
                     <Link to="/home" className="navbar-logo" onClick={toggleHome}>
-                     <img src ="/logo.png" className = "logo"/>   Photo_Album  
+                    <i class="far fa-bookmark"></i>   &nbsp; Photo_Album  
                     </Link>
 
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                     </div>
                     <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                    {!Retrieval && 
+                    <>
                         <li className='nav-item'>
-                            <Link to="/profile" className='nav-links' onClick={toggleAboutme}>
-                                Profile
-                            </Link>
-                         </li>
-                       
-                        <li className='nav-item'>
-                            <Link to="/register" className='nav-links' onClick={toggleExperience}>
-                                Register
-                            </Link>
+                                <Link to="/register" className='nav-links' onClick={toggleExperience}>
+                                    Register
+                                </Link>
                         </li>
 
 
                         <li className='nav-item'>
-                            <Link to="/login" className='nav-links' onClick={toggleContact}>
-                                Login
-                            </Link>
+                                <Link to="/login" className='nav-links' onClick={toggleContact}>
+                                    Login
+                                </Link>
                         </li>
+                      
+                    </>
+                    }
+
+                    {Retrieval && 
+                    <>
+                        <li className='nav-item'>
+                                <Link to="/home" className='nav-links' onClick={toggleAboutme}>
+                                    Home
+                                </Link>
+                        </li>
+                        <li className='nav-item'>
+                                <Link to="/profile" className='nav-links' onClick={toggleAboutme}>
+                                    Profile
+                                </Link>
+                        </li>
+                        
+                        <li className='nav-item'>
+                                <Link to="/home" className='nav-links' onClick={ForceUpdate}>
+                                    Logout
+                                </Link>
+                        </li>
+                    </>
+                    }
                     </ul>
                    {/* {button && <Button buttonStyle='btn--outline'> Test Button </Button>}*/}
             

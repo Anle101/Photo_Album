@@ -9,11 +9,14 @@ import Register from './components/Register';
 import useToken from './components/useToken';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Upload from './components/Upload';
+import UploadSection from './components/UploadSection';
 
 function App() {
 
   const [CurrentProfile, setCurrentProfile] = useState({});
   const {token, setToken} = useToken();
+  const {LoggedIn, setLoggedIn} = useState();
   const location = useLocation();
   
   
@@ -21,7 +24,7 @@ function App() {
     <AnimatePresence  initial = {false} exitBeforeEnter>
       
         <Switch location={location} key={location.pathname}>
-          <GlobalContext.Provider value={{CurrentProfile, setCurrentProfile,token}}>
+          <GlobalContext.Provider value={{CurrentProfile, setCurrentProfile,token, setToken}}>
           
             {/*!token &&  
               <Login setToken={setToken}/> */
@@ -31,10 +34,15 @@ function App() {
                 <Route path="/login">
                   <Login setToken={setToken}/>
                 </Route>
+                <Route path="/upload">
+                  <Navbar /> 
+                  <UploadSection />
+                </Route>
                 <Route path="/register"> 
                   <Register /> 
                 </Route>
-                <Route path="/profile"> 
+                <Route path="/profile">
+                  <Navbar /> 
                   <Profile /> 
                 </Route>
                 <Route path="/home"> 

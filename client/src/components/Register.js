@@ -28,7 +28,7 @@ function Register() {
         <motion.div className="register-section">
         
             <div className="background" >
-                <motion.div initial={{x:2000}} animate = {{ x: 750}} exit = {{x:2000}} className="rwall"></motion.div>
+                <motion.div initial={{x:2000}} animate = {{ x: 749}} exit = {{x:2000}} className="rwall"></motion.div>
             
             </div>
         
@@ -37,7 +37,10 @@ function Register() {
               
        
                 <ul className="userSection">
-                    <img src="/logo.png" alt="logo" className="rlogo"></img>
+                    <i className="far fa-bookmark rlogo"></i> 
+                    <p className="rlogo-font">Photo_Album</p>
+                    
+                    
                     <li>
                         <input type="text" name="username" className="inputfield" placeholder = "Email" onChange = {(e) => {
                             setEmail(e.target.value);

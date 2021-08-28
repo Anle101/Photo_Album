@@ -14,7 +14,7 @@
     width: 80px;
     background-color: antiquewhite;
     z-index: 3;
-    transition: 0.1s ease-in-out;
+
 }
 
 
@@ -22,7 +22,11 @@
 .tooltip {
     position: relative;
     display: inline-block;
-
+    -ms-user-select:none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    text-decoration: none;
   }
   
  
@@ -49,4 +53,8 @@
   
   .tooltip:hover .tooltiptext {
     visibility: visible;
+  }
+  
+  .camera { 
+    color: #000;
   }

@@ -2,7 +2,7 @@
 .rwall { 
     position: absolute;
     overflow: hidden;
-    width: 70vw;
+    width: 60vw;
     height: 100vh;
     border: 1px solid #DFFFF9;
     background: linear-gradient(230deg, #FFC5BB, #FF9F8E);
@@ -13,7 +13,7 @@
 .registerform {
     position:absolute;
     left: 20vh;
-    top:5vh;
+    top:4vh;
     user-select: auto;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -22,11 +22,19 @@
 }
 
 .rlogo { 
-    width:30vh;
-    height:auto;
+    margin-top:150px;
+    align-self:center;
+    opacity: 0.5;
+    font-size:150px;
+}
+
+.rlogo-font {
+    font-size:36px;
+    align-self:center;
 }
 
 .userSection {
+    display:flex;
     flex-direction:column;
     width:35vh;
     font-size:24px;
@@ -44,6 +52,7 @@
 }
 
 .inputfield {
+    align-self:center;
     width:25vh;
     height: 4vh;
     box-shadow: 2px 3px 5px #888888;

@@ -18,6 +18,7 @@ app.use('/login', (request, response) => {
     });
 });
 
+
 app.get('/api/getlogin', (request,response) => {
     const email = request.query.user;
     const password = request.query.password;
@@ -56,10 +57,15 @@ app.get('/api/getprofile', (request, response) => {
     });
 });
 
+app.post('/api/uploadfile', (request, response) => {
+    response.send("sent successfully");
+    console.log(request);
+});
+
 app.post('/api/registerverification', (request,response) => {
     const email = request.body.email;
     const password = request.body.password;
-
+    
     const sqlstatement = "INSERT INTO users (email, password) VALUES (?,?);";
 
     db.query(sqlstatement, [email, password], (error, result) => {

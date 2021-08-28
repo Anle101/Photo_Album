@@ -9,13 +9,7 @@ function Profile() {
 
     const {CurrentProfile} = useContext(GlobalContext);
     const {setCurrentProfile} = useContext(GlobalContext);
-    const [value, setValue] = useState(0); // integer state
-
-    const ForceUpdate = () => {
-        localStorage.clear();
-        
-        setValue(value => value + 1); // update the state to force render
-    }
+   
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
@@ -54,7 +48,7 @@ function Profile() {
                 </div>
            </div>
          
-            <Link to="/login" className="button"  onClick={ForceUpdate}>Log Out</Link>
+          
         </motion.div>
     )
 }

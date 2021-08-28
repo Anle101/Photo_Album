@@ -71,8 +71,9 @@ function Login({setToken}) {
                     <motion.form initial={{x:-700}} animate = {{ x: 0}} exit = {{x:-1700}} className = "loginform" onSubmit = {loginCred}>
                
                         <ul className="userSection">
-                            <img src="/logo.png" alt="logo" className="llogo"></img>
-
+                            <i className="far fa-bookmark llogo"></i> 
+                            <p className="llogo-font">Photo_Album</p>
+                            
                             <li>
                                 <input type="text" name="username" className="inputfield" placeholder = "Email or Username" onChange={(e) => {setLoginUser(e.target.value)}} />    
                             </li>
