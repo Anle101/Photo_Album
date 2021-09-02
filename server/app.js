@@ -58,7 +58,19 @@ app.get('/api/getprofile', (request, response) => {
 });
 
 app.post('/api/uploadfile', (request, response) => {
-    response.send("sent successfully");
+    if (request.files === null) {
+        return response.status(400).json({msg: 'No file uploaded' });
+    }
+    console.log(request);
+    const file = request.files.file;
+
+    file.mv(`${_dirname}/client/public/images/${file.name}`, error => {
+        if (error) {
+            console.error(error);
+            return response.status(500).send(error);
+        }
+    })
+    response.send({fileName: file.name, filePath: `/images/${file.name}`});
     console.log(request);
 });
 

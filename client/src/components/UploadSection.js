@@ -5,32 +5,52 @@ import axios from 'axios';
 function UploadSection() {
 
     const [File, setFile] = useState();
+    const [FileName, setFileName] = useState();
+    const [uploadedFile, setUploadedFile] = useState({});
 
     const fileSelectedHandler = event => {
         setFile(event.target.files[0]); 
-    }
+        setFileName(event.target.files[0].name);
+        console.log("file set");
+    };
 
-    const fileUploadHandler = event => {
-        const fd = new FormData();
-        fd.append('image', File, File.name);    
-        axios.post("http://localhost:3001/api/uploadfile", fd, {
-            onUploadProgress: progressEvent => {
-                console.log('Upload progress: ' + ((progressEvent.loaded / progressEvent.total)*100) + '%');
+    const fileUploadHandler = async event => {
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append('file', File);   
+        
+        console.log(formData);
+        try {
+            const response = await axios.post('http://localhost:3001/api/uploadfile', formData, {
+               headers: {
+                   'Content-Type': 'multipart/form-data'
+               }
+            });
+
+            const { fileName, filePath } = response.data;
+
+            setUploadedFile({fileName, filePath});
+        } catch (error) {
+            if (error.response.status === 500) {
+                console.log("server error");
+            } else {
+                console.log(error.response.data.msg);
             }
-        })
+        } 
+    };
 
-        .then (res => {
-            console.log(res);
-        });
-    }
     return (
         <motion.div initial={{opacity:0}} animate = {{ opacity: 1}} exit = {{opacity:0}}>
             <div className="background">
                 <motion.div initial={{opacity:0}} animate = {{ opacity: 1}} exit = {{opacity:0}} className="hwall"></motion.div>
             </div> 
-
-            <input type="file" onChange= {fileSelectedHandler} />
-            <button onClick={fileUploadHandler} >Submit </button>
+            <form onSubmit={fileUploadHandler}>
+                <div>
+                    <input type="file" onChange= {fileSelectedHandler} />
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+            
         </motion.div>
     )
 }
