@@ -46,8 +46,7 @@ function Home() {
     
     const FeedDisplay = ({feedItems})  => (
         <div>
-            {feedItems.map (feedItem => (<Feed feedItem = {{imgPath:feedItem.image_dir, caption: feedItem.picture_caption, name: feedItem.name, profile_picture: feedItem.profile_picture}}/>))}
-           
+            {feedItems.map (feedItem => (<Feed feedItem = {{imgPath:feedItem.image_dir, caption: feedItem.picture_caption, name: feedItem.name, profile_picture: feedItem.profile_picture}}/>))}  
         </div>
     );
       

@@ -1,3 +1,52 @@
 .upload-form { 
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-message { 
+    font-size: 60px;
+}
+
+.upload { 
+    width: 30vw;
+    height: auto;
     
+    
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    background-color: #EDEDEE;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.upload-content {
+    margin: 30px;
+    font-size: 24px;  
+    display:flex;
+    flex-direction: column;
+    justify-content: center;  
+}
+
+.upload-imagebutton {
+    align-self: center;
+    margin-bottom: 10px;
+    font-size:24px;
+}
+
+.upload-image { 
+    width: 25vw;
+    height: auto;
+}
+
+.upload-caption {
+    margin-top:20px; 
+    padding: 20px;
+
+    font-size:24px;
+    border:none;
+
 }

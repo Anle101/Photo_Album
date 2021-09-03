@@ -2,6 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const mysql = require("mysql");
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, '../client/public/images/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+})
+const upload = multer({ storage: storage})
 
 const db = mysql.createPool({
     host: 'localhost',
@@ -57,21 +67,22 @@ app.get('/api/getprofile', (request, response) => {
     });
 });
 
-app.post('/api/uploadfile', (request, response) => {
+app.post('/api/uploadfile', upload.single('file'), (request, response) => {
     if (request.files === null) {
         return response.status(400).json({msg: 'No file uploaded' });
     }
     console.log(request);
-    const file = request.files.file;
+    const file = request.file;
+    console.log(request.file);
+    const caption = request.body.caption;
+    const poster = request.body.poster;
+    const sqlstatement = `INSERT INTO pictures (poster_id,image_dir, picture_caption) VALUES (${poster},\"/images/${file.originalname}\", \"${caption}\"); `; 
 
-    file.mv(`${_dirname}/client/public/images/${file.name}`, error => {
-        if (error) {
-            console.error(error);
-            return response.status(500).send(error);
-        }
-    })
-    response.send({fileName: file.name, filePath: `/images/${file.name}`});
-    console.log(request);
+    db.query(sqlstatement, (error, result) => {
+        response.send({fileName: file.originalname, filePath: `/images/${file.originalname}`});
+        console.log(result);
+    });
+    
 });
 
 app.post('/api/registerverification', (request,response) => {

@@ -4,6 +4,7 @@ import {motion} from 'framer-motion';
 import './Profile.css';
 
 import { GlobalContext } from '../context/GlobalContext';
+import EditProfile from './EditProfile';
 
 function Profile() {
 
@@ -46,8 +47,9 @@ function Profile() {
                     <hr />
                     Details: {CurrentProfile.details}
                 </div>
-           </div>
-         
+            </div>
+
+            <EditProfile />
           
         </motion.div>
     )

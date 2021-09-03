@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Upload from './components/Upload';
 import UploadSection from './components/UploadSection';
+import EditProfileSection from './components/EditProfileSection';
 
 function App() {
 
@@ -44,6 +45,10 @@ function App() {
                 <Route path="/profile">
                   <Navbar /> 
                   <Profile /> 
+                </Route>
+                <Route path="/editprofile">
+                  <Navbar /> 
+                  <EditProfileSection /> 
                 </Route>
                 <Route path="/home"> 
                   <Navbar />
