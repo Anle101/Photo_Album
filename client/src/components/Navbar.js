@@ -6,6 +6,7 @@ import Axios from 'axios';
 
  function Navbar() {
 
+    const {CurrentProfile} = useContext(GlobalContext);
     const [value, setValue] = useState(0); // integer state
     const [Retrieval, setRetrieval] = useState(false);
     const ForceUpdate = () => {
@@ -84,7 +85,7 @@ import Axios from 'axios';
             <nav className="navbar">
                 <div className="navbar-container">
                     <Link to="/home" className="navbar-logo" onClick={toggleHome}>
-                    <i class="far fa-bookmark"></i>   &nbsp; Photo_Album  
+                    <i class="far fa-bookmark"></i> Photo_Album  
                     </Link>
 
                     <div className='menu-icon' onClick={handleClick}>
@@ -111,6 +112,10 @@ import Axios from 'axios';
 
                     {Retrieval && 
                     <>
+                        <li className='user-message'>
+                            <img src={(CurrentProfile.profile_picture)? CurrentProfile.profile_picture : "/images/blank.jpg"} className="user-image"></img> 
+                            <p>{CurrentProfile.name}</p>
+                        </li>
                         <li className='nav-item'>
                                 <Link to="/home" className='nav-links' onClick={toggleAboutme}>
                                     Home

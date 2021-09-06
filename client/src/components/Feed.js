@@ -8,11 +8,13 @@ function Feed({feedItem}) {
     return (
         <div className="entire-feed">
             <div className="main-content">
-                <motion.div className="feed" whileHover= {
+                <motion.div className="feed" initial={{rotateZ:180, opacity:0, scale:0}} animate = {{ rotateZ: 360, opacity:1, transition: {type:'spring', duration: 1}, scale:1}} exit = {{rotateZ:0, opacity:0}} whileHover= {
                 {
                     scale: 1.1,
                 }
-                }>
+                }
+          
+                >
                     <div className="feed-content">
                         <img src={feedItem.imgPath} className="feed-image"></img>
                         <p>{feedItem.caption}</p>

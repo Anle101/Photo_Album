@@ -1,5 +1,5 @@
 .navbar {
-    background: #e8c3ba;
+    background: #EAC9C0;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -28,8 +28,23 @@
     font-size: 2rem;
     display: flex;
     align-items: center;
+    vertical-align: middle;
   }
 
+  .user-image { 
+    width:50px;
+    align-self:center;
+    margin-right:15px;
+    border-radius: 50%;
+  }
+  .user-message {
+    padding-inline: 10px;;
+    background-color: #EAC9C0;
+    color: #FDF3EF;
+    align-self:center;
+    font-size:1.5rem;
+    display:flex;
+  }
   .logo { 
    
       width:100px;
@@ -53,7 +68,9 @@
   }
   
   .nav-item {
+   
     height: 70px;
+    align-self:center;
   }
   
   .nav-links {
