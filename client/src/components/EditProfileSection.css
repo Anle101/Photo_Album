@@ -1,9 +1,18 @@
+form {
+    width: 100%;
+ 
+  }
+
+
+
+
+
 .edit-form { 
     display:flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    
+    flex:1;
 }
 
 .edit-message { 
@@ -11,7 +20,7 @@
 }
 
 .edit { 
-    width: 30vw;
+    width: auto;
     height: auto;
     
     
@@ -22,6 +31,7 @@
     display:flex;
     flex-direction: row;
     justify-content: center;
+    flex:1;
 }
 .edit-imagebutton {
     align-self: center;
@@ -30,18 +40,42 @@
 }
 
 .edit-content {
-    margin: 30px;
+    
     font-size: 24px;  
-    display:flex;
-    flex-direction: column;
-    justify-content: center;  
+
 }
 
+.preview-profile { 
 
+    margin: 30px;
+    object-fit: cover;
+    width: 500px;
+    height:500px;
+    border-radius: 50%;
+}
 .line { 
     list-style-type: none;
+    display: flex;
+
+    flex-direction: column;
+ 
+
 }
 
+.line label {
+    text-align: left;
+    
+}
+.line input {
+    flex:0.8;
+    width:80%;
+    margin-bottom:20px;
+}
+
+.line textarea { 
+    width:80%;
+    font-size:16px;
+}
 .form-label {
     margin-right:10px;
 }

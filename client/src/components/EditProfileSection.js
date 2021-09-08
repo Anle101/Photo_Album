@@ -7,10 +7,11 @@ function EditProfileSection() {
     const [File, setFile] = useState();
     const [Caption, setCaption] = useState();
     const [FileName, setFileName] = useState();
-    const [uploadedFile, setUploadedFile] = useState({});
+    const [FileSelected, setFileSelected ] = useState(false);
     const [PreviewFile, setPreviewFile] = useState();
     const {CurrentProfile} = useContext(GlobalContext);
     const fileSelectedHandler = event => {
+        setFileSelected(true);
         setFile(event.target.files[0]); 
         setFileName(event.target.files[0].name);
         setPreviewFile (URL.createObjectURL(event.target.files[0]));
@@ -32,8 +33,7 @@ function EditProfileSection() {
             });
 
             const { fileName, filePath } = response.data;
-            console.log(fileName + " " + filePath);
-            setUploadedFile({fileName, filePath});
+
         } catch (error) {
             if (error.response.status === 500) {
                 console.log("server error");
@@ -48,18 +48,15 @@ function EditProfileSection() {
             <div className="background">
                 <motion.div initial={{opacity:0}} animate = {{ opacity: 1}} exit = {{opacity:0}} className="hwall"></motion.div>
             </div> 
-            <form onSubmit={fileUploadHandler} >
-                <div className="edit-form">
-
+            <form onSubmit={fileUploadHandler} className="edit-form">
                     <h1 className="edit-message">Edit Profile</h1>
 
                     <motion.div className="edit" whileHover= {
                         {
-                        scale: 1.1,
+                        scale: 1.03,
                         }
-                    }>
-                        <div className="edit-content">
-                        <ul>
+                    }>     
+                        <ul className="edit-content">
                             <li className="line">
                                 <label className = "form-label">Name: </label>
                                 <input type="text" onChange= {(e) => {setCaption(e.target.value);}} className = "edit-caption"/>
@@ -75,20 +72,27 @@ function EditProfileSection() {
                             </li>
                             <li className="line">
                                 <label className = "form-label">Details: </label>
-                                <input type="text" onChange= {(e) => {setCaption(e.target.value);}} className = "edit-caption"/>
+                                <textarea  onChange= {(e) => {setCaption(e.target.value);}} className = "edit-caption"/>
                             </li>
                             <li className="line">
                                 <label className = "form-label">Profile Picture: </label>
-                                <input accept="image/*" type="file" onChange= {fileSelectedHandler}  className="upload-imagebutton"/>
-                                <img src= {PreviewFile} className="upload-image"></img>
                             </li>
-                           
+
+                            <li className="line">
+                                <input accept="image/*" type="file" onChange= {fileSelectedHandler}  className="upload-imagebutton"/>
+                            </li>
+
+                            <li className="line">
+                                {FileSelected && 
+                                <>
+                                    <img src= {PreviewFile} className="preview-profile"></img>
+                                </>
+                                }                          
+                            </li>
                         </ul>
-                           
-                        </div>
+                        
                     </motion.div>
                     <input type="submit" value="Submit" className="edit-imagebutton"/>
-                </div>
             </form>
 
           
