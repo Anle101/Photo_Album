@@ -5,7 +5,10 @@ import axios from 'axios';
 import {GlobalContext} from '../context/GlobalContext';
 function EditProfileSection() {
     const [File, setFile] = useState();
-    const [Caption, setCaption] = useState();
+    const [Name, setName] = useState();
+    const [City, setCity] = useState();
+    const [Province, setProvince] = useState();
+    const [Details, setDetails] = useState();
     const [FileName, setFileName] = useState();
     const [FileSelected, setFileSelected ] = useState(false);
     const [PreviewFile, setPreviewFile] = useState();
@@ -22,11 +25,14 @@ function EditProfileSection() {
         event.preventDefault();
         const formData = new FormData();
         formData.append('file', File);   
-        formData.append('caption', Caption);
+        formData.append('name', Name);
+        formData.append('city', City);
+        formData.append('province', Province);
+        formData.append('details', Details);
         formData.append('poster', CurrentProfile.user_id);
         console.log(formData);
         try {
-            const response = await axios.post('http://localhost:3001/api/uploadfile', formData, {
+            const response = await axios.post('http://localhost:3001/api/editprofile', formData, {
                headers: {
                    'Content-Type': 'multipart/form-data'
                }
@@ -59,20 +65,20 @@ function EditProfileSection() {
                         <ul className="edit-content">
                             <li className="line">
                                 <label className = "form-label">Name: </label>
-                                <input type="text" onChange= {(e) => {setCaption(e.target.value);}} className = "edit-caption"/>
+                                <input type="text" onChange= {(e) => {setName(e.target.value);}} className = "edit-caption" placeholder="hi"/>
                             </li>
                            
                             <li className="line">
                                 <label className = "form-label">City: </label>
-                                <input type="text" onChange= {(e) => {setCaption(e.target.value);}} className = "edit-caption"/>
+                                <input type="text" onChange= {(e) => {setCity(e.target.value);}} className = "edit-caption"/>
                             </li>
                             <li className="line">
                                 <label className = "form-label">Province: </label>
-                                <input type="text" onChange= {(e) => {setCaption(e.target.value);}} className = "edit-caption"/>
+                                <input type="text" onChange= {(e) => {setProvince(e.target.value);}} className = "edit-caption"/>
                             </li>
                             <li className="line">
                                 <label className = "form-label">Details: </label>
-                                <textarea  onChange= {(e) => {setCaption(e.target.value);}} className = "edit-caption"/>
+                                <textarea  onChange= {(e) => {setDetails(e.target.value);}} className = "edit-caption"/>
                             </li>
                             <li className="line">
                                 <label className = "form-label">Profile Picture: </label>

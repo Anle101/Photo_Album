@@ -68,7 +68,7 @@ function Login({setToken}) {
                     }
                     {!token &&
                     <>
-                    <motion.form initial={{x:-700}} animate = {{ x: 0}} exit = {{x:-1700}} className = "loginform" onSubmit = {loginCred}>
+                    <motion.form initial={{x:0}} animate = {{ x: 1200}} exit = {{x:0}} className = "loginform" onSubmit = {loginCred}>
                
                         <ul className="userSection">
                             <i className="far fa-bookmark llogo"></i> 

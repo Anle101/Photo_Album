@@ -85,6 +85,27 @@ app.post('/api/uploadfile', upload.single('file'), (request, response) => {
     
 });
 
+app.post('/api/editprofile', upload.single('file'), (request, response) => {
+    if (request.files === null) {
+        return response.status(400).json({msg: 'No file uploaded' });
+    }
+    console.log(request);
+    const file = request.file;
+    console.log(request.file);
+    const name = request.body.name;
+    const city = request.body.city;
+    const province = request.body.province;
+    const details = request.body.details;
+    const poster = request.body.poster;
+    const sqlstatement = `UPDATE users SET name = '${name}', city = '${city}', profile_picture = '/images/${file.originalname}', province = '${province}', details = '${details}' WHERE user_id = ${poster} ;`; 
+
+    db.query(sqlstatement, (error, result) => {
+        console.log(result);
+    });
+    
+});
+
+
 app.post('/api/registerverification', (request,response) => {
     const email = request.body.email;
     const password = request.body.password;
