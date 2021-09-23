@@ -26,7 +26,7 @@ function UploadSection() {
         formData.append('poster', CurrentProfile.user_id);
         console.log(formData);
         try {
-            const response = await axios.post('http://localhost:3001/api/uploadfile', formData, {
+            const response = await axios.post('https://photo-album-teacup.herokuapp.com/api/uploadfile', formData, {
                headers: {
                    'Content-Type': 'multipart/form-data'
                }

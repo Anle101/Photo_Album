@@ -22,7 +22,7 @@ function Home() {
             const userConfirmation = JSON.parse(loggedInUser);
             setCurrentProfile(userConfirmation);
             console.log(userConfirmation);
-            Axios.get("http://localhost:3001/api/getcontent",  {
+            Axios.get("https://photo-album-teacup.herokuapp.com/api/getcontent",  {
                 params: {
                     user: userConfirmation.email, 
                 }

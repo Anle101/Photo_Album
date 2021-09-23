@@ -24,7 +24,7 @@ function Login({setToken}) {
             alert("A user is already logged in!");
         }
         else {
-            Axios.get("http://localhost:3001/api/getlogin",  {
+            Axios.get("https://photo-album-teacup.herokuapp.com/api/getlogin",  {
                 params: {
                     user: LoginUser, 
                     password: LoginPassword,

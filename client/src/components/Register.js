@@ -12,7 +12,7 @@ function Register() {
     const submitRegister = () => { 
         if (Password === CPassword) {
             console.log("done");
-            Axios.post('http://localhost:3001/api/registerverification', {
+            Axios.post('https://photo-album-teacup.herokuapp.com/api/registerverification', {
                 email: Email, 
                 password: Password,
             }).then (() => {

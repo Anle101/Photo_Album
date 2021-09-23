@@ -14,10 +14,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage})
 
 const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'Javacode098',   
-    database: 'teacup'
+    host: '@us-cdbr-east-04.cleardb.com',
+    user: 'b48dc252c0f13f',
+    password: '55d2d887',   
+    database: 'heroku_4c87da24ecf6553'
 });
 const port = 3001;
 app.use(cors());
@@ -116,6 +116,9 @@ app.post('/api/registerverification', (request,response) => {
     db.query(sqlstatement, [email, password], (error, result) => {
         console.log(result);
     });
+});
+app.get('/', (req, res) => {
+    res.send('Hello World!')
 });
 
 app.listen(process.env.PORT || port, () => {
