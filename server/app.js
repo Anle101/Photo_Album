@@ -19,6 +19,7 @@ const db = mysql.createPool({
     password: 'Javacode098',   
     database: 'teacup'
 });
+const port = 3001;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -117,6 +118,6 @@ app.post('/api/registerverification', (request,response) => {
     });
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("running on port 3001");
 });

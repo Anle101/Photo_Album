@@ -2,7 +2,7 @@ import {useState} from 'react';
 import './App.css';
 import Login from './components/Login';
 import Profile from './components/Profile';
-import {Route, Switch, useLocation} from 'react-router-dom';
+import {Route, Switch, useLocation,Redirect} from 'react-router-dom';
 import {GlobalContext} from './context/GlobalContext'; 
 import { AnimatePresence } from "framer-motion";
 import Register from './components/Register';
@@ -53,6 +53,9 @@ function App() {
                 <Route path="/home"> 
                   <Navbar />
                   <Home /> 
+                </Route>
+                <Route exact path="/">
+                  <Redirect to="/home" />
                 </Route>
               </>
             }
