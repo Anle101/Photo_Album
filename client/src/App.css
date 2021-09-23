@@ -1,0 +1,17 @@
+* {
+  
+  font-family: 'Quicksand', sans-serif;
+}
+.App {
+  text-align: center;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+

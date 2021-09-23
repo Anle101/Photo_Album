@@ -1,0 +1,91 @@
+
+.rwall { 
+    position: absolute;
+    overflow: hidden;
+    width: 60vw;
+    height: 100vh;
+    border: 1px solid #DFFFF9;
+    background: linear-gradient(230deg, #FFC5BB, #FF9F8E);
+    background-repeat: no-repeat;
+
+}
+
+.registerform {
+    position:absolute;
+    left: 20vh;
+    top:4vh;
+    user-select: auto;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+}
+
+.rlogo { 
+    margin-top:150px;
+    align-self:center;
+    opacity: 0.5;
+    font-size:150px;
+}
+
+.rlogo-font {
+    font-size:36px;
+    align-self:center;
+}
+
+.userSection {
+    display:flex;
+    flex-direction:column;
+    width:35vh;
+    font-size:24px;
+    list-style-type:none;
+}
+
+.userSection li {
+    display:inline-flex;
+    margin:10px;
+}
+
+.userSection li .inputfield {
+    min-width:300px;
+    justify-content: flex-end;
+}
+
+.inputfield {
+    align-self:center;
+    width:25vh;
+    height: 4vh;
+    box-shadow: 2px 3px 5px #888888;
+    border-radius: 4px;
+    border: 1px solid #000;
+    font-size: 18px;
+}
+
+.inputfield:focus {
+    border: 1px solid #fff;
+}
+
+.registerbutton { 
+    border: 1px solid #000;
+    text-align:center;
+    
+    margin-right: 10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size:18px;
+    background-color: #fff;
+}
+
+.registerbutton:hover {
+    background-color:#00CDCD;
+    border: 1px solid #C0FFF4;
+    color:#fff;
+}
+
+.registerlink { 
+    font-size:15px;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-bottom:15px;
+    text-align: center;
+}
