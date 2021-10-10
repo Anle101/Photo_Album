@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage})
 
 const db = mysql.createPool({
-    host: '@us-cdbr-east-04.cleardb.com',
+    host: 'us-cdbr-east-04.cleardb.com',
     user: 'b48dc252c0f13f',
     password: '55d2d887',   
     database: 'heroku_4c87da24ecf6553'
